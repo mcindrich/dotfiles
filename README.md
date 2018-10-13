@@ -8,6 +8,7 @@
  - conky
  - ncmpcpp
  - window manager - i3 (gaps)
+ - compton - fork with kawase blur
 
 ## Wallpaper link
 https://alpha.wallhaven.cc/wallpaper/695993

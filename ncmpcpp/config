@@ -1,0 +1,17 @@
+mpd_host = "localhost"
+mpd_port = "1234"
+mpd_music_dir = "~/Music"
+
+mouse_list_scroll_whole_page = "yes"
+lines_scrolled = "1"
+
+user_interface = "alternative"
+follow_now_playing_lyrics = "yes"
+
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "|■"
+
+progressbar_look = "─╼─"
+

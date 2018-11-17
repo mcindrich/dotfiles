@@ -1,3 +1,12 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
 [colors]
 ;background = ${xrdb:color0:#222}
 ;2e344000
@@ -12,9 +21,40 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[bar/top-bar]
+width = 100%
+height = 20
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 3
+border-color = #00000000
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Monospace:pixelsize=11;3
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Material Icons:pixelsize=12;5
+
+modules-left = spotify spotify-prev spotify-next
+;modules-center = mpd
+modules-right = powermenu
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [bar/bottom-bar]
 width = 100%
-height = 45
+height = 35
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 4.0
@@ -23,7 +63,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 7
+line-size = 5
 line-color = #f00
 
 border-size = 6
@@ -43,17 +83,6 @@ font-3 = Material Icons:pixelsize=14;3
 modules-left = bspwm i3
 ;modules-center = mpd
 modules-right = filesystem eth pulseaudio date
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -328,19 +357,18 @@ ramp-foreground = ${colors.foreground-alt}
 type = custom/menu
 
 expand-right = true
-
 format-spacing = 1
 
-label-open = POWER
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = poweroff
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
@@ -359,6 +387,42 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
+
+[module/spotify]
+type = custom/script
+
+exec = /home/mcindrich/.config/polybar/spotify.sh
+
+tail = true
+interval = 5
+
+format = <label> 
+label = %output:0:30:...%
+format-background = #e60053
+format-foreground = #000
+format-padding = 4
+
+[module/spotify-next]
+type = custom/text
+
+content-background = #e60053
+content-foreground = #000
+content-padding = 0
+
+click-left = playerctl next
+
+content = 
+
+[module/spotify-prev]
+type = custom/text
+
+content = 
+
+content-background = #e60053
+content-foreground = #000
+content-padding = 0
+
+click-left = playerctl previous
 
 [global/wm]
 margin-top = 5

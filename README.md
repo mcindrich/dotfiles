@@ -11,4 +11,4 @@
  - compton - fork with kawase blur
 
 ## Wallpaper link
-https://alpha.wallhaven.cc/wallpaper/695993
+https://alpha.wallhaven.cc/wallpaper/712090
